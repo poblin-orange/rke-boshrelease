@@ -1,0 +1,6 @@
+---
+name: rke
+packages: []
+templates:
+  ignoreme: ignoreme
+properties: {}
