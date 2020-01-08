@@ -1,0 +1,20 @@
+---
+name: management
+packages:
+- rke
+templates:
+  config/bpm.yml: config/bpm.yml
+  cluster-config.yml.erb: config/cluster-config.yml
+  pre-start.erb: pre-start
+  pre-stop.erb: pre-stop
+  post-deploy.erb: post-deploy
+consumes: []
+provides:
+- name: management
+  type: management
+  properties:
+  - port
+properties:
+  port:
+    description: Bind to this port
+    default: 8080

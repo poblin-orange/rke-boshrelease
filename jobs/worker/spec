@@ -1,0 +1,16 @@
+---
+name: worker
+packages: []
+templates:
+  config/bpm.yml: config/bpm.yml
+  pre-start.erb: bin/pre-start
+consumes: []
+provides:
+- name: worker
+  type: worker
+  properties:
+  - port
+properties:
+  port:
+    description: Bind to this port
+    default: 8080
