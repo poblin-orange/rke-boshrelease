@@ -1,13 +1,16 @@
 # If you intened to deploy Kubernetes in an air-gapped environment,
 # please consult the documentation on how to configure custom RKE images.
 nodes:
-- address: 1.1.1.1
+
+<% masters = link('master') %>
+<% masters.instances.each do |instance| %>
+- address: <%= instance.address %>
   port: "22"
   internal_address: ""
   role:
   - controlplane
   - etcd
-  hostname_override: master-0
+  hostname_override: master-<%=  instance.index %>
   user: rke
   docker_socket: /var/run/docker.sock
   ssh_key: ""
@@ -16,12 +19,16 @@ nodes:
   ssh_cert_path: ""
   labels: {}
   taints: []
-- address: 2.2.2.2
+<% end %>  
+
+<% workers = link('worker') %>
+<% workers.instances.each do |instance| %>
+- address: <%= instance.address %>
   port: "22"
   internal_address: ""
   role:
   - worker
-  hostname_override: worker-0
+  hostname_override: worker--<%=  instance.index %>
   user: rke
   docker_socket: /var/run/docker.sock
   ssh_key: ""
@@ -30,6 +37,9 @@ nodes:
   ssh_cert_path: ""
   labels: {}
   taints: []
+<% end %>
+
+
 services:
   etcd:
     image: ""
