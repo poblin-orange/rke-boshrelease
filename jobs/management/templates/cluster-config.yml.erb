@@ -12,7 +12,7 @@ nodes:
   - etcd
   hostname_override: master-<%=  instance.index %>
   user: rke
-  docker_socket: /var/run/docker.sock
+  docker_socket: /var/vcap/sys/run/docker/docker.sock 
   ssh_key: "id_rsa"
   ssh_key_path: /var/vcap/jobs/management/config
   ssh_cert: ""
@@ -30,7 +30,7 @@ nodes:
   - worker
   hostname_override: worker--<%=  instance.index %>
   user: rke
-  docker_socket: /var/run/docker.sock
+  docker_socket: /var/vcap/sys/run/docker/docker.sock
   ssh_key: "id_rsa"
   ssh_key_path: /var/vcap/jobs/management/config/
   ssh_cert: ""
