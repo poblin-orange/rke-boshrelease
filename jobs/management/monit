@@ -1,5 +1,0 @@
-check process management
-  with pidfile /var/vcap/sys/run/bpm/management/management.pid
-  start program "/var/vcap/jobs/bpm/bin/bpm start management"
-  stop program "/var/vcap/jobs/bpm/bin/bpm stop management"
-  group vcap
