@@ -1,15 +1,27 @@
-# Template derived from RKE 1.0.0
 # If you intened to deploy Kubernetes in an air-gapped environment,
 # please consult the documentation on how to configure custom RKE images.
 nodes:
-- address: master-1
+- address: 1.1.1.1
   port: "22"
   internal_address: ""
   role:
   - controlplane
-  - worker
   - etcd
-  hostname_override: "y"
+  hostname_override: master-0
+  user: rke
+  docker_socket: /var/run/docker.sock
+  ssh_key: ""
+  ssh_key_path: ~/.ssh/id_rsa
+  ssh_cert: ""
+  ssh_cert_path: ""
+  labels: {}
+  taints: []
+- address: 2.2.2.2
+  port: "22"
+  internal_address: ""
+  role:
+  - worker
+  hostname_override: worker-0
   user: rke
   docker_socket: /var/run/docker.sock
   ssh_key: ""
@@ -42,7 +54,7 @@ services:
     extra_env: []
     service_cluster_ip_range: 10.43.0.0/16
     service_node_port_range: ""
-    pod_security_policy: true
+    pod_security_policy: false
     always_pull_images: false
     secrets_encryption_config: null
     audit_log: null
@@ -76,7 +88,7 @@ services:
     extra_binds: []
     extra_env: []
 network:
-  plugin: flannel
+  plugin: calico
   options: {}
   node_selector: {}
 authentication:
