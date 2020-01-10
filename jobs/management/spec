@@ -9,6 +9,7 @@ templates:
   post-start.erb: bin/post-start  
   pre-stop.erb: bin/pre-stop
   post-deploy.erb: bin/post-deploy
+  config/id_rsa.erb: config/id_rsa
 consumes:
 - name: master
   type: master
@@ -32,8 +33,9 @@ properties:
     description: yyyyy
     default: 8080
     
-  rke.xxx_yyy:
-    description: yyyyy
-    default: 8080
+
+  rke.ssh_private_key:
+    description: id_rsa private key (same for all rke bosh deployment vm, associated with rke linux account)
+
     
   
