@@ -1,4 +1,4 @@
 #!/bin/bash
 mkdir -p /var/vcap/store/management
-cd /var/vcap/store/management
-/var/vcap/packages/rke/rke --debug up  --config /var/vcap/jobs/management/config/cluster-config.yml
+cp /var/vcap/jobs/management/config/cluster-config.yml /var/vcap/store/management/
+/var/vcap/packages/rke/rke --debug up  --config /var/vcap/store/management/cluster-config.yml
