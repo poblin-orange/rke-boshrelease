@@ -10,7 +10,7 @@ nodes:
   role:
   - controlplane
   - etcd
-  hostname_override: master-<%=  instance.index %>
+  #hostname_override: master-<%=  instance.index %>
   user: rke
   docker_socket: /var/vcap/sys/run/docker/docker.sock 
   ssh_key: ""
@@ -28,7 +28,7 @@ nodes:
   internal_address: ""
   role:
   - worker
-  hostname_override: worker--<%=  instance.index %>
+  #hostname_override: worker--<%=  instance.index %>
   user: rke
   docker_socket: /var/vcap/sys/run/docker/docker.sock
   ssh_key: ""
@@ -98,7 +98,10 @@ services:
     extra_binds: []
     extra_env: []
 network:
-  plugin: calico
+  plugin: weave
+  weave_network_provider:
+    password: "Q]SZOQ5wp@n$oijz"
+  #plugin: calico
   options: {}
   node_selector: {}
 authentication:
