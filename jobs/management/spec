@@ -10,6 +10,7 @@ templates:
   pre-stop.erb: bin/pre-stop
   post-deploy.erb: bin/post-deploy
   config/id_rsa.erb: config/id_rsa
+  run.erb: bin/run
 consumes:
 - name: master
   type: master
