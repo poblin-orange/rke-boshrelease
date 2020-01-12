@@ -8,7 +8,7 @@ ln -sf /opt/cni /var/vcap/store/master/opt/cni
 ln -sf /var/run/calico /var/vcap/store/master/var/run/calico
 
 #configure sshd and let it update
-echo "   AllowTcpForwarding yes" >> /etc/ssh/ssh_config
+echo "AllowTcpForwarding yes" >> /etc/ssh/sshd_config
 
 #sudo kill -SIGHUP $(pgrep -f "sshd -D")
 service sshd stop
