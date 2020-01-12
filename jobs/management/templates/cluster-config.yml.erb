@@ -5,7 +5,7 @@ nodes:
 <% masters = link('master') %>
 <% masters.instances.each do |instance| %>
 - address: <%= instance.address %>
-  port: "w%= p('rke.ssh_port') %>"
+  port: "<%= p('rke.ssh_port') %>"
   internal_address: ""
   role:
   - controlplane

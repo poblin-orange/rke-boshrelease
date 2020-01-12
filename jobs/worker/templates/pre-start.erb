@@ -9,6 +9,8 @@ ln -sf /var/run/calico /var/vcap/store/master/var/run/calico
 
 #configure sshd and let it update
 echo "AllowTcpForwarding yes" >> /etc/ssh/sshd_config
+echo "AllowStreamLocalForwarding yes" >> /etc/ssh/sshd_config
+
 
 #sudo kill -SIGHUP $(pgrep -f "sshd -D")
 service sshd stop
