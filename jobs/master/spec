@@ -15,9 +15,13 @@ provides:
 - name: master
   type: master
   properties:
-  - port
+  - labels
+  - taints
 
 properties:
-  port:
-    description: Bind to this port
-    default: 8080
+  labels:
+    description: k8S labels for worker node 
+    default: ""
+  taints:
+    description: k8S taints for worker node 
+    default: ""

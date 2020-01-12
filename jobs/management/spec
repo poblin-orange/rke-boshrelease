@@ -19,12 +19,6 @@ consumes:
 - name: worker
   type: worker
   optional: false
-
-provides:
-- name: management
-  type: management
-  properties:
-  - port
 properties:
   rke.ssh_private_key:
     description: id_rsa private key (same for all rke bosh deployment vm, associated with rke linux account)
