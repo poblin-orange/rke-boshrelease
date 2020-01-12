@@ -26,17 +26,11 @@ provides:
   properties:
   - port
 properties:
-  port:
-    description: Bind to this port
-    default: 8080
-    
-  rke.xxx_yyy:
-    description: yyyyy
-    default: 8080
-    
-
   rke.ssh_private_key:
     description: id_rsa private key (same for all rke bosh deployment vm, associated with rke linux account)
+  rke.ssh_port:
+    description: ssh listen port on worker and master vms
+    default: 22
 
     
   
