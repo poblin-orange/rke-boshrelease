@@ -26,5 +26,12 @@ properties:
     description: ssh listen port on worker and master vms
     default: 22
 
+  rke.kube-api.k8s-args:
+    description: "Pass-through options for Kubernetes runtime arguments. See docs https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/ for reference."
+    default: {}
+    example: |
+      k8s-args:
+        anonymous-auth: false
+        bind-address: 10.0.0.1
     
   

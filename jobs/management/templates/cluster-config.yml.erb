@@ -59,7 +59,7 @@ services:
     backup_config: null
   kube-api:
     image: ""
-    extra_args: {}
+    extra_args: <%= p('rke.kube-api.k8s-args') %>
     extra_binds: []
     extra_env: []
     service_cluster_ip_range: 10.43.0.0/16
