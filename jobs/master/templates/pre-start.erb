@@ -1,6 +1,14 @@
 #!/bin/bash
 
 #map disk access to bosh persistent disk location
+mkdir -p /var/vcap/store/master/etc/kubernetes/ssl
+mkdir -p /var/vcap/store/master/var/lib/etcd
+mkdir -p /var/vcap/store/master /etc/cni
+mkdir -p /var/vcap/store/master/opt/cni
+mkdir -p /var/vcap/store/master/var/run/calico
+
+
+
 ln -sf /etc/kubernetes/ssl /var/vcap/store/master/etc/kubernetes/ssl
 ln -sf /var/lib/etcd /var/vcap/store/master/var/lib/etcd
 ln -sf /etc/cni /var/vcap/store/master /etc/cni
@@ -11,6 +19,7 @@ ln -sf /var/run/calico /var/vcap/store/master/var/run/calico
 echo "AllowTcpForwarding yes" >> /etc/ssh/sshd_config
 echo "AllowStreamLocalForwarding yes" >> /etc/ssh/sshd_config
  
+
 
 #sudo kill -SIGHUP $(pgrep -f "sshd -D")
 service sshd stop

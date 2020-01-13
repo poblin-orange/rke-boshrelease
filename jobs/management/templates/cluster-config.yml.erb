@@ -24,7 +24,7 @@ nodes:
 <% workers = link('worker') %>
 <% workers.instances.each do |instance| %>
 - address: <%= instance.address %>
-  port: "22"
+  port: "<%= p('rke.ssh_port') %>"
   internal_address: ""
   role:
   - worker
