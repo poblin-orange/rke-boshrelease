@@ -13,10 +13,6 @@ nodes:
   #hostname_override: master-<%=  instance.index %>
   user: rke
   docker_socket: /var/vcap/sys/run/docker/docker.sock 
-  ssh_key: ""
-  ssh_key_path: /var/vcap/jobs/management/config/id_rsa
-  ssh_cert: ""
-  ssh_cert_path: ""
   labels: {}
   taints: []
 <% end %>  
@@ -31,10 +27,6 @@ nodes:
   #hostname_override: worker--<%=  instance.index %>
   user: rke
   docker_socket: /var/vcap/sys/run/docker/docker.sock
-  ssh_key: ""
-  ssh_key_path: /var/vcap/jobs/management/config/id_rsa 
-  ssh_cert: ""
-  ssh_cert_path: ""
   labels: {}
   taints: []
 <% end %>
@@ -146,7 +138,7 @@ system_images:
   ingress_backend: rancher/nginx-ingress-controller-defaultbackend:1.5-rancher1
   metrics_server: rancher/metrics-server:v0.3.4
   windows_pod_infra_container: rancher/kubelet-pause:v0.1.3
-ssh_key_path: ~/.ssh/id_rsa
+ssh_key_path: /var/vcap/jobs/management/config/id_rsa
 ssh_cert_path: ""
 ssh_agent_auth: false
 authorization:

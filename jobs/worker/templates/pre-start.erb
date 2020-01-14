@@ -4,14 +4,14 @@
 
 mkdir -p /var/vcap/store/worker
 mkdir -p /var/vcap/store/worker/etc/kubernetes
-mkdir -p /var/vcap/store/worker/var/lib/etcd
+mkdir -p /var/vcap/store/worker/var/lib/kubelet
 mkdir -p /var/vcap/store/worker/etc/cni
 mkdir -p /var/vcap/store/worker/opt/cni
 mkdir -p /var/vcap/store/worker/var/run/calico
 
 ln -sf  /var/vcap/store/worker/etc/kubernetes /etc/kubernetes
 
-ln -sf  /var/vcap/store/worker/var/lib/etcd /var/lib/etcd
+ln -sf  /var/vcap/store/worker/var/lib/kubelet /var/lib/kubelet
 
 ln -sf  /var/vcap/store/worker /etc/cni
 ln -sf /var/vcap/store/worker/opt/cni /opt/cni 
