@@ -20,8 +20,8 @@ ln -sf  /var/vcap/store/worker/var/run/calico /var/run/calico
 #configure sshd and let it update
 echo "AllowTcpForwarding yes" >> /etc/ssh/sshd_config
 echo "AllowStreamLocalForwarding yes" >> /etc/ssh/sshd_config
+echo "GatewayPorts yes" >> /etc/ssh/sshd_config
 
 #sudo kill -SIGHUP $(pgrep -f "sshd -D")
-service sshd stop
-service sshd start
+systemctl reload sshd.service
 exit 0;

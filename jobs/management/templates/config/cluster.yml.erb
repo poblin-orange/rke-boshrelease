@@ -158,9 +158,9 @@ dns:
 # To disable ingress controller, set `provider: none`
 # `node_selector` controls ingress placement and is optional
 ingress:
-    provider: nginx
-    node_selector:
-      app: ingress
+  provider: nginx
+  node_selector:
+    app: ingress
 cluster_name: ""
 cloud_provider:
   name: ""
@@ -183,5 +183,5 @@ restore:
   snapshot_name: ""
 # Specify DNS provider (coredns or kube-dns)
 dns:
-    provider: coredns
+  provider: coredns
 
