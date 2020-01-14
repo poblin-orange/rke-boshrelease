@@ -3,16 +3,14 @@
 #map disk access to bosh persistent disk location
 
 mkdir -p /var/vcap/store/worker
-mkdir -p /var/vcap/store/worker/etc/kubernetes/ssl
+mkdir -p /var/vcap/store/worker/etc/kubernetes
 mkdir -p /var/vcap/store/worker/var/lib/etcd
 mkdir -p /var/vcap/store/worker/etc/cni
 mkdir -p /var/vcap/store/worker/opt/cni
 mkdir -p /var/vcap/store/worker/var/run/calico
 
-mkdir -p /etc/kubernetes
-ln -sf  /var/vcap/store/worker/etc/kubernetes/ssl /etc/kubernetes/ssl
+ln -sf  /var/vcap/store/worker/etc/kubernetes /etc/kubernetes
 
-mkdir -p /var/lib 
 ln -sf  /var/vcap/store/worker/var/lib/etcd /var/lib/etcd
 
 ln -sf  /var/vcap/store/worker /etc/cni

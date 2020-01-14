@@ -1,24 +1,5 @@
 #!/bin/sh
 chmod go-rwx /var/vcap/jobs/management/config/id_rsa
 
-#map disk access to bosh persistent disk location
-
-mkdir -p /var/vcap/store/management
-mkdir -p /var/vcap/store/management/etc/kubernetes/ssl
-mkdir -p /var/vcap/store/management/var/lib/etcd
-mkdir -p /var/vcap/store/management/etc/cni
-mkdir -p /var/vcap/store/management/opt/cni
-mkdir -p /var/vcap/store/management/var/run/calico
-
-mkdir -p /etc/kubernetes
-ln -sf  /var/vcap/store/management/etc/kubernetes/ssl /etc/kubernetes/ssl
-
-mkdir -p /var/lib 
-ln -sf  /var/vcap/store/management/var/lib/etcd /var/lib/etcd
-
-ln -sf  /var/vcap/store/management /etc/cni
-ln -sf /var/vcap/store/management/opt/cni /opt/cni 
-ln -sf  /var/vcap/store/master/var/run/calico /var/run/calico
-
 
 exit 0

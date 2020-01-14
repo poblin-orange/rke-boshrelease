@@ -106,7 +106,12 @@ network:
   node_selector: {}
 authentication:
   strategy: x509
-  sans: []
+  sans:
+<% masters = link('master') %>
+<% masters.instances.each do |instance| %>
+  - <%= instance.address %>
+<% end %>
+
   webhook: null
 addons: ""
 addons_include: []
@@ -150,20 +155,22 @@ authorization:
 ignore_docker_version: false
 kubernetes_version: ""
 private_registries: []
+# Specify DNS provider (coredns or kube-dns)
+dns:
+    provider: coredns
+
+# Currently only nginx ingress provider is supported.
+# To disable ingress controller, set `provider: none`
+# `node_selector` controls ingress placement and is optional
 ingress:
-  provider: ""
-  options: {}
-  node_selector: {}
-  extra_args: {}
-  dns_policy: ""
-  extra_envs: []
-  extra_volumes: []
-  extra_volume_mounts: []
+    provider: nginx
+    node_selector:
+      app: ingress
 cluster_name: ""
 cloud_provider:
   name: ""
 prefix_path: ""
-addon_job_timeout: 0
+addon_job_timeout: 300
 bastion_host:
   address: ""
   port: ""
@@ -179,4 +186,7 @@ monitoring:
 restore:
   restore: false
   snapshot_name: ""
-dns: null
+# Specify DNS provider (coredns or kube-dns)
+dns:
+    provider: coredns
+
