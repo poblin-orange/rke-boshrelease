@@ -1,22 +1,5 @@
 #!/bin/bash
 
-#map disk access to bosh persistent disk location
-
-mkdir -p /var/vcap/store/worker
-mkdir -p /var/vcap/store/worker/etc/kubernetes
-mkdir -p /var/vcap/store/worker/var/lib/kubelet
-mkdir -p /var/vcap/store/worker/etc/cni
-mkdir -p /var/vcap/store/worker/opt/cni
-mkdir -p /var/vcap/store/worker/var/run/calico
-
-ln -sf  /var/vcap/store/worker/etc/kubernetes /etc/kubernetes
-
-ln -sf  /var/vcap/store/worker/var/lib/kubelet /var/lib/kubelet
-
-ln -sf  /var/vcap/store/worker /etc/cni
-ln -sf /var/vcap/store/worker/opt/cni /opt/cni 
-ln -sf  /var/vcap/store/worker/var/run/calico /var/run/calico
-
 #configure sshd and let it update
 echo "AllowTcpForwarding yes" >> /etc/ssh/sshd_config
 echo "AllowStreamLocalForwarding yes" >> /etc/ssh/sshd_config
