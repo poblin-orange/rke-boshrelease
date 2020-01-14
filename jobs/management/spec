@@ -4,7 +4,7 @@ packages:
 - rke
 templates:
   config/bpm.yml: config/bpm.yml
-  cluster-config.yml.erb: config/cluster-config.yml
+  config/cluster.yml.erb: config/cluster.yml
   pre-start.erb: bin/pre-start
   post-start.erb: bin/post-start  
   pre-stop.erb: bin/pre-stop

@@ -1,4 +1,5 @@
 #!/bin/bash
 mkdir -p /var/vcap/store/management
-cp /var/vcap/jobs/management/config/cluster-config.yml /var/vcap/store/management/
-/var/vcap/packages/rke/rke --debug up  --config /var/vcap/store/management/cluster-config.yml
+cp /var/vcap/jobs/management/config/cluster.yml /var/vcap/store/management/
+/var/vcap/packages/rke/rke --debug up  --config /var/vcap/store/management/cluster.yml
+chmod ugo+r /var/vcap/store/management/*
