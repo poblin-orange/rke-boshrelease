@@ -20,8 +20,14 @@ consumes:
   type: worker
   optional: false
 properties:
+
+
+  rke.ssh_user:
+    description: ssh user to connect from management to master/worker nodes (same for all rke bosh deployment vms)
+    default: vcap
+ 
   rke.ssh_private_key:
-    description: id_rsa private key (same for all rke bosh deployment vm, associated with rke linux account)
+    description: id_rsa private key (same for all rke bosh deployment vm)
   rke.ssh_port:
     description: ssh listen port on worker and master vms
     default: 22

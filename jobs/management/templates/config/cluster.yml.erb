@@ -11,7 +11,7 @@ nodes:
   - controlplane
   - etcd
   #hostname_override: master-<%=  instance.index %>
-  user: rke
+  user: "<%= p('rke.ssh_user') %>"
   docker_socket: /var/vcap/sys/run/docker/docker.sock 
   labels: {}
   taints: []
@@ -25,7 +25,7 @@ nodes:
   role:
   - worker
   #hostname_override: worker--<%=  instance.index %>
-  user: rke
+  user: "<%= p('rke.ssh_user') %>"
   docker_socket: /var/vcap/sys/run/docker/docker.sock
   labels: {}
   taints: []
