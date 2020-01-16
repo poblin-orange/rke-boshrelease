@@ -80,7 +80,8 @@ services:
       #target docker bosh release location  	
       docker: "unix:///var/vcap/sys/run/docker/docker.sock"
       docker-endpoint: "unix:///var/vcap/sys/run/docker/docker.sock" 
-    extra_binds: []
+    extra_binds:
+    - /var/vcap/sys/run/docker/docker.sock:/var/vcap/sys/run/docker/docker.sock    
     extra_env: []
     cluster_domain: cluster.local
     infra_container_image: ""
