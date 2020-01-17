@@ -162,7 +162,7 @@ ingress:
   provider: nginx
   node_selector:
     app: ingress
-cluster_name: ""
+cluster_name: "<%= p('rke.cluster_name') %>"
 cloud_provider:
   name: ""
 prefix_path: "/var/vcap/store/rke"
