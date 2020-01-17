@@ -6,6 +6,11 @@ echo "AllowStreamLocalForwarding yes" >> /etc/ssh/sshd_config
 echo "GatewayPorts yes" >> /etc/ssh/sshd_config
 
 
+#patch /etc/hosts (ipv6 issue with ssh tunnel from management)
+grep -v  '::' /etc/hosts > /tmp/new-hosts
+cp /tmp/new-hosts /etc/hosts
+
+
 #sudo kill -SIGHUP $(pgrep -f "sshd -D")
 systemctl reload sshd.service
 exit 0;
