@@ -5,6 +5,7 @@ packages: []
 templates:
   config/bpm.yml: config/bpm.yml
   pre-start.erb: bin/pre-start
+  drain.erb: bin/drain
   
 
 # Documentation https://bosh.io/docs/links.html
