@@ -4,7 +4,6 @@ packages: []
 templates:
   config/bpm.yml: config/bpm.yml
   pre-start.erb: bin/pre-start
-  drain.erb: bin/drain
 consumes: []
 provides:
 - name: worker

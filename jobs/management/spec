@@ -22,10 +22,14 @@ consumes:
 properties:
 
 
+  rke.cluster_name:
+    description: rke cluster name
+    default: "" 
+ 
   rke.ssh_user:
     description: ssh user to connect from management to master/worker nodes (same for all rke bosh deployment vms)
     default: rke 
- 
+
   rke.ssh_private_key:
     description: id_rsa private key (same for all rke bosh deployment vm)
   rke.ssh_port:
