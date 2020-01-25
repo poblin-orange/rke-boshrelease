@@ -1,7 +1,7 @@
 ---
 blobstore:
-  provider: swift
+  provider: s3
   options:
-    container_name: rke-boshrelease
-    swift_provider: openstack
+    bucket_name: orange-rke-boshrelease
 final_name: rke
+
