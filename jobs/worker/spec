@@ -14,8 +14,8 @@ provides:
 properties:
   labels:
     description: k8S labels for worker node 
-    default: ""
+    default: []
   taints:
     description: k8S taints for worker node 
-    default: ""
+    default: {}
     

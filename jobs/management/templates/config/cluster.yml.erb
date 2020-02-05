@@ -27,8 +27,6 @@ nodes:
   #hostname_override: worker--<%=  instance.index %>
   user: "<%= p('rke.ssh_user') %>"
   docker_socket: /var/vcap/sys/run/docker/docker.sock
-  labels: {}
-  taints: []
 <% end %>
 
 
