@@ -1,6 +1,26 @@
 # BOSH release for rke
 
 This BOSH release and deployment manifest deploy a cluster of rke.
+Rancher Kubernetes Engine (RKE), an extremely simple, lightning fast Kubernetes distribution that runs entirely within containers. 
+https://github.com/rancher/rke
+
+
+## design overview
+
+Provide a lightweight bosh packaging of Rancher RKE kubernetes distribution
+Depends on:
+- docker bosh release
+- jumbox bosh release
+
+Includes
+- Rancher rke binary
+
+
+The bosh release offers 3 jobs to build a full rke bosh deployment:
+- master jobs. must be associated with docker bosh release and jumbox bosh release on instance_group
+- worker jobs. must be associated with docker bosh release and jumbox bosh release on instance_group
+- management jobs: This jobs holds the reke binary and cluster.yml generation from bosh spec properties. It relies on bosh lifecycle (pre-start, post-deploy) to provision rke via ssh on master and worker nodes, and uses bosh links to configure masters and workers ips.
+
 
 ## Usage
 
