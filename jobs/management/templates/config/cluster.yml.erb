@@ -10,7 +10,7 @@ nodes:
   role:
   - controlplane
   - etcd
-  #hostname_override: master-<%=  instance.index %>
+  hostname_override: <%= instance.address %>
   user: "<%= p('rke.ssh_user') %>"
   docker_socket: /var/vcap/sys/run/docker/docker.sock 
   labels: {}
@@ -24,7 +24,7 @@ nodes:
   internal_address: ""
   role:
   - worker
-  #hostname_override: worker--<%=  instance.index %>
+  hostname_override: <%= instance.address %>
   user: "<%= p('rke.ssh_user') %>"
   docker_socket: /var/vcap/sys/run/docker/docker.sock
 <% end %>
