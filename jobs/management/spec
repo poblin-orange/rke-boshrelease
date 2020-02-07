@@ -36,6 +36,15 @@ properties:
     description: ssh listen port on worker and master vms
     default: 22
 
+  rke.network.plugin:
+    description: possible values are canal flannel or calico
+    default: flannel
+
+  rke.network.options:
+    description: options for chosen network plugin
+    default: {}
+
+
   rke.kube-api.k8s-args:
     description: "Pass-through options for Kubernetes runtime arguments. See docs https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/ for reference."
     default: {}

@@ -95,8 +95,8 @@ network:
   #plugin: flannel 
   #weave_network_provider:
   #  password: "Q]SZOQ5wp@n$oijz"
-  plugin: calico
-  options: {}
+  plugin: <%= p('rke.network.plugin') %>
+  options: <%= p('rke.network.options') %>
   node_selector: {}
 authentication:
   strategy: x509
