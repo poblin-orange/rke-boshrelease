@@ -85,7 +85,7 @@ services:
     infra_container_image: ""
     cluster_dns_server: 10.43.0.10
     fail_swap_on: false
-    generate_serving_certificate: false
+    generate_serving_certificate: true 
   kubeproxy:
     image: ""
     extra_args: {}
@@ -172,7 +172,7 @@ bastion_host:
   ssh_cert: ""
   ssh_cert_path: ""
 monitoring:
-  provider: ""
+  provider: none #disable built-in metrics server 
   options: {}
   node_selector: {}
 restore:
